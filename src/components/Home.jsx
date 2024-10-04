@@ -116,7 +116,7 @@ editId===item.id?
     </ul>
 
 
-    ):<div><img src="" alt="" className='image'/>
+    ):<div ><img src="" alt="" className='image'/>
 <p  className='your'>Your List Is Empty!📃</p>
 </div>
 
