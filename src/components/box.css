@@ -90,7 +90,7 @@ align-items: center;
     height: 300px;
   }
   .box{
-    height: 600px;
+    height: 570px;
   }
   .ash{
     
@@ -147,10 +147,10 @@ align-items: center;
 }
 .your{
     position: absolute;
-    margin-left: 70px;
+    margin-left: 90px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 15px;
-    margin-top: 130px;
+    margin-top: 100px;
 }
 
 }
