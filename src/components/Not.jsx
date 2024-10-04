@@ -28,7 +28,7 @@ function Not() {
         <ul style={{listStyle:'none'}}>
       {
         notcompletedList.map((item)=>(
-            <div className="list">
+            <div className="list two">
                 <Checkbox className='pink'
         {...label}
     

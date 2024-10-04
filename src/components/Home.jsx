@@ -9,6 +9,9 @@ import { addToDo, deleteToDo, toggleToDo, updateToDo,initialToDo,deleteAllToDo }
 import { useDispatch, useSelector } from 'react-redux';
 import Checkbox from '@mui/material/Checkbox';
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 function Home() {
   
     const [input,setInput]=useState('');
@@ -56,6 +59,15 @@ console.log('to do list',toDoList)
        localStorage.setItem('todos',JSON.stringify(toDoList)) 
     },[toDoList])
  console.log(toDoList);
+ const [show, setShow] = useState(false);
+
+ const handleClose = () => setShow(false);
+ const handleShow = () => setShow(true);
+ const handleModal=()=>{
+    dispatch(deleteAllToDo());
+    handleClose();
+    setInput('')
+ }
   return (
    <>
   <div className="row">
@@ -73,11 +85,31 @@ console.log('to do list',toDoList)
  </Menu>
         <h1>TO DO LIST</h1>
         <div className="d-flex options" >
-<i className='fa-solid fa-trash  delete me-3' style={{color:'rgb(172, 35, 35)'}} onClick={()=>dispatch(deleteAllToDo())}></i>
+<i className='fa-solid fa-trash  delete me-3' style={{color:'rgb(172, 35, 35)'}} onClick={handleShow}></i>
+
+<Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+        
+        </Modal.Header>
+        <Modal.Body>
+         ARE YOU SURE YOU WANTED TO DELETE ALL DATA?
+        </Modal.Body>
+        <Modal.Footer>
+         
+          <Button variant="warning" onClick={handleModal}>CONFIRM</Button>
+        </Modal.Footer>
+      </Modal>
+
+
 <i class="fa-solid fa-house house ms-3" style={{color:'white'}}></i>
 </div>
     </div>
-    <div className='mt-4 text-center input-column'><input type="text" placeholder='Enter a quick task here' onChange={(e)=>setInput(e.target.value)}/>
+    <div className='mt-4 text-center input-column'><input type="text" placeholder='Enter a quick task here' value={input} onChange={(e)=>setInput(e.target.value)}/>
     <button onClick={handleToDoList} className='btn add' ><i class="fa-solid fa-plus"></i></button>
     </div>
 

@@ -27,7 +27,7 @@ function Done() {
         <ul style={{listStyle:'none'}}>
       {
         completedList.map((item)=>(
-            <div className="list">
+            <div className="list two">
                 <Checkbox className='pink'
         {...label}
     
