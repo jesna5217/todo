@@ -1,0 +1,142 @@
+.box{
+    height: 750px;
+    background-color: white;
+    position: relative;
+   
+}
+.image{
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+   
+}
+.ash{
+    padding: 10px;
+    margin-top: 10px;
+    height: 70px;
+    width: 100%;
+    background-color: rgba(138, 68, 159, 0.853);
+}
+.ash h1{
+    margin-top: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+i{
+    font-size: 20px;
+}
+.input-column{
+    padding: 0px 50px
+}
+.input-column input{
+    height: 50px;
+    /* width: 400px; */
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px black;
+    padding-left: 10px;
+}
+.input-column input::placeholder{
+    font-weight: 600;
+}
+.list{
+    height: auto;
+    width: 100%;
+    /* background-color:#dcd6f7;  */
+   border-radius: 10px;
+    z-index: 100;
+   background: linear-gradient(to top,rgba(165, 141, 141, 0.5),rgba(112, 81, 121, 0.853));
+  position: relative;
+  display: flex;
+justify-content: left;
+align-items: center;
+
+}
+.add{
+ position: absolute;
+ top: 15%;
+ right: 13%;
+}
+.folder{
+    padding: 40px;
+}
+.list{
+    margin-bottom: 20px;
+    width: 90%;
+    position: relative;
+}
+.pen{
+    position: absolute;
+    color: green;
+    right: 10%;
+}
+.trash{
+    position: absolute;
+    color: rgb(185, 64, 64);
+    right: 0;
+}
+.edit{
+    position: absolute;
+    right: 10%;
+}
+@media only screen and (max-width: 600px){
+  .image{
+    height: 300px;
+  }
+  .box{
+    height: 580px;
+  }
+  .ash{
+    
+    height: 50px;
+  
+}
+h1{
+    font-size: 19px;
+    margin-top: 10px;
+}
+i{
+    font-size: 16px;
+}
+.input-column{
+    padding: 0px 10px
+}
+.input-column input{
+    height: 40px;
+    /* width: 400px; */
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px black;
+    padding-left: 10px;
+}
+.input-column input::placeholder{
+    font-weight: 600;
+}
+.list{
+    height: auto;
+    width: 100%;
+    /* background-color:#dcd6f7;  */
+   border-radius: 10px;
+    z-index: 100;
+   background: linear-gradient(to top,rgba(165, 141, 141, 0.5),rgba(112, 81, 121, 0.853));
+  position: relative;
+  display: flex;
+justify-content: left;
+align-items: center;
+
+}
+.add{
+ position: absolute;
+ top: 15%;
+ right: 13%;
+}
+.folder{
+
+    padding:20px 0px;
+}
+.list{
+    margin-bottom: 20px;
+    width: 90%;
+    position: relative;
+}
+
+}
