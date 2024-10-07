@@ -2,7 +2,7 @@
     height: 750px;
     background-color: white;
     position: relative;
-   
+   border: 1px solid black;
 }
 .image{
     position: absolute;
@@ -57,7 +57,7 @@ align-items: center;
  right: 13%;
 }
 .folder{
-    padding: 40px;
+    padding: 25px;
 }
 .list{
     margin-bottom: 20px;
@@ -74,24 +74,35 @@ align-items: center;
     color: rgb(185, 64, 64);
     right: 0;
 }
+
 .edit{
     position: absolute;
     right: 10%;
 }
 .your{
     position: absolute;
-    margin-left: 130px;
+    margin-left: 150px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 17px;
     margin-top: 130px;
 }
+.addinput{
+    margin-top: 10%;
+    width: 100%;
+    border:2px solid rgb(117, 63, 117);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.addinput:focus{
+    outline: none;
+}
+
 @media only screen and (max-width: 600px){
   .image{
-    height: 300px;
+    height: 200px;
   }
-  .box{
-    height: 570px;
-  }
+ 
   .ash{
     
     height: 50px;
@@ -133,8 +144,8 @@ align-items: center;
 }
 .add{
  position: absolute;
- top: 15%;
- right: 13%;
+ top: 12%;
+ right: 10%;
 }
 .folder{
 
@@ -147,10 +158,13 @@ align-items: center;
 }
 .your{
     position: absolute;
-    margin-left: 90px;
+    margin-left: 120px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 15px;
     margin-top: 100px;
 }
+
+}
+@media (min-width: 600px) and (max-width: 959px){
 
 }

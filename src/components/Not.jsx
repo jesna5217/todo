@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Checkbox from '@mui/material/Checkbox';
 import { pink } from '@mui/material/colors';
 import { deleteToDo, toggleToDo } from '../Redux/todoSlice';
@@ -8,7 +8,7 @@ import woman from '../assets/empty2.avif'
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 function Not() {
  const dispatch=useDispatch();
-    const list=useSelector((state)=>state.todoReducer);
+const list=JSON.parse(localStorage.getItem('todos'));
     console.log(list);
     const notcompletedList=list.filter(item=>item.completed!==true)
   return (
@@ -39,7 +39,7 @@ function Not() {
           },
         }} onChange ={()=>dispatch(toggleToDo(item.id))} checked={item.completed}/>
             <li className='text'>{item.value}</li>
-    <button className='trash' onClick={()=>dispatch(deleteToDo(item.id))} > <i class="fa-solid fa-trash"></i></button>
+    <button className='trash btn' onClick={()=>dispatch(deleteToDo(item.id))} > <i class="fa-solid fa-trash"></i></button>
 </div>
         ))
       }            

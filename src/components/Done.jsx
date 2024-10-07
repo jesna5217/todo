@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import Checkbox from '@mui/material/Checkbox';
 import { pink } from '@mui/material/colors';
 import { deleteToDo, toggleToDo } from '../Redux/todoSlice';
@@ -9,8 +9,11 @@ import { Link } from 'react-router-dom';
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 function Done() {
     const dispatch=useDispatch()
-    const list=useSelector((state)=>state.todoReducer);
-    console.log(list);
+   // const list=useSelector((state)=>state.todoReducer);
+   
+   
+ 
+const list=JSON.parse(localStorage.getItem('todos'))
     const completedList=list.filter(item=>item.completed===true)
   return (
     <>
@@ -22,7 +25,9 @@ function Done() {
 <Link to={'/'}><i class="fa-solid fa-house house ms-5" style={{color:'white'}}></i></Link>
 
     </div>
-    {completedList.length>0?
+
+    {
+    completedList.length>0?
         
         <ul style={{listStyle:'none'}}>
       {
@@ -43,8 +48,10 @@ function Done() {
 
             </div>
         ))
-      }            
-        </ul>:
+      }   
+        
+        </ul>
+        :
         <div className='text-center empty'>
             <img src={empty} alt="" height='200px' />
             <p style={{fontWeight:500}}>Your list is empty!!!</p>

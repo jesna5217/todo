@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './box.css'
-import pic from '../assets/bgp.jpg'
+import pic from '../assets/bgm3.avif'
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import '@szhsin/react-menu/dist/transitions/zoom.css';
@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 import { addToDo, deleteToDo, toggleToDo, updateToDo,initialToDo,deleteAllToDo } from '../Redux/todoSlice'
 import { useDispatch, useSelector } from 'react-redux';
 import Checkbox from '@mui/material/Checkbox';
+
+
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 import Button from 'react-bootstrap/Button';
@@ -18,6 +20,7 @@ function Home() {
     const toDoList=useSelector((state)=>state.todoReducer);
     const [editId,setEditId]=useState(null);
     const [editValue,setEditValue]=useState('')
+   
     const dispatch=useDispatch()
 
     const handleToDoList=()=>{
@@ -27,7 +30,8 @@ if(input.trim()){
 const data={
     id:index,
     value:input,
-    completed:false
+    completed:false,
+   
 }
     dispatch(addToDo(data));
     setInput('')
@@ -56,10 +60,14 @@ console.log('to do list',toDoList)
      },[dispatch])
        
     useEffect(()=>{
-       localStorage.setItem('todos',JSON.stringify(toDoList)) 
+        const uniqueToDo=Array.from(new Map(toDoList.map(item=>[item.id,item])).values());
+       localStorage.setItem('todos',JSON.stringify(uniqueToDo)) 
     },[toDoList])
- console.log(toDoList);
+
+ const uniqueToDo=Array.from(new Map(toDoList.map(item=>[item.id,item])).values());
+
  const [show, setShow] = useState(false);
+const [darkMode,setDarkMode]=useState(false)
 
  const handleClose = () => setShow(false);
  const handleShow = () => setShow(true);
@@ -68,11 +76,14 @@ console.log('to do list',toDoList)
     handleClose();
     setInput('')
  }
+
+
   return (
    <>
-  <div className="row">
+   <div className={`row ${darkMode ? 'dark-mode' : ''}`}>
+  
   <div className="col-md-4"></div>
-   <div className="col-md-4 box">
+  <div className={`col-md-4 box ${darkMode ? 'bg-black text-white' : ''}`}>
     <div className='ash text-center d-flex justify-content-between align-items-center'>
     <Menu menuButton={<i class="fa-solid fa-sort sort"></i>} transition>
 
@@ -105,8 +116,12 @@ console.log('to do list',toDoList)
         </Modal.Footer>
       </Modal>
 
+      <i 
+                className="fa-solid fa-house house ms-3" 
+                style={{ color: darkMode ? 'black' : 'white' ,cursor:'pointer'}} // Change home button color based on dark mode
+                onClick={() => setDarkMode(!darkMode)} 
+              ></i> 
 
-<i class="fa-solid fa-house house ms-3" style={{color:'white'}}></i>
 </div>
     </div>
     <div className='mt-4 text-center input-column'><input type="text" placeholder='Enter a quick task here' value={input} onChange={(e)=>setInput(e.target.value)}/>
@@ -116,11 +131,11 @@ console.log('to do list',toDoList)
 
     <div className='folder'>
         {
-    toDoList.length>0?(
+    uniqueToDo.length>0?(
 
     <ul style={{listStyle:'none'}}>
         {
-    toDoList.map(item=>(
+    uniqueToDo.map(item=>(
         <div className='list shadow '> 
                <Checkbox {...label} checked={item.completed} color="default"  onClick={()=>dispatch(toggleToDo(item.id))}/>
 {
@@ -141,10 +156,20 @@ editId===item.id?
 
 
     <button className='trash btn' onClick={()=>dispatch(deleteToDo(item.id))} > <i class="fa-solid fa-trash"></i></button>
+
+
+
+ <div
+    >
+   
+  </div>
+
+
     </div>
     
  ))
 }
+
     </ul>
 
 
@@ -157,10 +182,18 @@ editId===item.id?
 
 
 
-    <img src={pic} alt="" height='400px' width='100%' className='image'/>
+{!darkMode && <img src={pic} alt="" height='200px' width='100%' className='image' />}
+
    </div>
-   <div className="col-md-4"></div>
-  </div>
+   <div className="col-md-4 folder">
+ 
+     
+    </div>
+    </div>
+
+
+
+   
 
    </>
   )
