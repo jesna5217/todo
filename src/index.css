@@ -1,7 +1,7 @@
 body{
   overflow-x:hidden ;
   overflow-y: hidden;
-  padding: 30px;
+  padding: 15px;
   background-color: antiquewhite!important;
 }
 @media only screen and (max-width: 600px){
