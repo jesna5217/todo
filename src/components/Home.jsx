@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { addToDo, deleteToDo, toggleToDo, updateToDo,initialToDo,deleteAllToDo } from '../Redux/todoSlice'
 import { useDispatch, useSelector } from 'react-redux';
 import Checkbox from '@mui/material/Checkbox';
-
+import black from "../assets/black2.avif"
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
@@ -82,7 +82,7 @@ const [darkMode,setDarkMode]=useState(false)
    <>
    <div className={`row ${darkMode ? 'dark-mode' : ''}`}>
   
-  <div className="col-md-4"></div>
+  <div className="col-md-4 "></div>
   <div className={`col-md-4 box ${darkMode ? 'bg-black text-white' : ''}`}>
     <div className='ash text-center d-flex justify-content-between align-items-center'>
     <Menu menuButton={<i class="fa-solid fa-sort sort"></i>} transition>
@@ -117,7 +117,7 @@ const [darkMode,setDarkMode]=useState(false)
       </Modal>
 
       <i 
-                className="fa-solid fa-house house ms-3" 
+                className="fa-solid fa-moon ms-2" 
                 style={{ color: darkMode ? 'black' : 'white' ,cursor:'pointer'}} // Change home button color based on dark mode
                 onClick={() => setDarkMode(!darkMode)} 
               ></i> 
@@ -125,7 +125,7 @@ const [darkMode,setDarkMode]=useState(false)
 </div>
     </div>
     <div className='mt-4 text-center input-column'><input type="text" placeholder='Enter a quick task here' value={input} onChange={(e)=>setInput(e.target.value)}/>
-    <button onClick={handleToDoList} className='btn add' ><i class="fa-solid fa-plus"></i></button>
+    <button onClick={handleToDoList} className=' add' ><i class="fa-solid fa-plus"></i></button>
     </div>
 
 
@@ -182,7 +182,9 @@ editId===item.id?
 
 
 
-{!darkMode && <img src={pic} alt="" height='200px' width='100%' className='image' />}
+{!darkMode ? <div><img src={pic} alt="" height='200px' width='100%' className='image'/></div> :<div>
+ <img src={black} alt="" height='200px' width='100%' className='image'/>
+ </div>}
 
    </div>
    <div className="col-md-4 folder">
